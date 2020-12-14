@@ -12,13 +12,15 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  // Add your code here!
+  let priceWithVat = originalPrice + originalPrice * (vatRate / 100);
+  return Number(priceWithVat.toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
+  let priceWithReduction = originalPrice - originalPrice * (reduction / 100);
+  return Number(priceWithReduction.toFixed(2));
 }
 
 function getMiddleCharacter(str) {
