@@ -25,34 +25,64 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let len = str.length;
-  
+  let l = str.length;
+  let startingIndex;
+  let numberOfChars;
 
+  if (l % 2 == 0) {
+    startingIndex = l / 2 - 1;
+    numberOfChars = 2;
+  }
+  else {
+    startingIndex = l / 2;
+    numberOfChars = 1;
+  }
+  return str.substring(startingIndex, startingIndex + numberOfChars);
 }
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  return word.split("").reverse().join("");
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  result = [];
+  reversedList = words.reverse();
+  sentence = reversedList.join(" ")
+  reversedString = sentence.split("").reverse().join("")
+  result = reversedString.split(" ")
+  return result
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  // Add your code here!
+  let linux = 0;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].type == "Linux") linux++;
+  }
+  return linux;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  scoreSum = 0;
+  for (let i = 0; i < scores.length; i++) {
+    scoreSum += scores[i];
+  }
+  const meanScore = scoreSum / scores.length;
+
+  if (meanScore % 1 === 0) return parseInt(meanScore);
+  else return parseFloat(Number(meanScore).toFixed(2));
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  // Add your code here!
+  if (n % 3 === 0 && n % 5 === 0) {return("fizzbuzz")};
+  if (n % 3 != 0 && n % 5 != 0) {return(n)};
+  if (n % 3 === 0) {return("fizz")};
+  if (n % 5 === 0) {return("buzz")};
+  if (n % 3 === 0) {return("fizz")};
 }
 
 module.exports = {
