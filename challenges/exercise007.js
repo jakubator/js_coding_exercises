@@ -4,10 +4,22 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  summed = n
+    .toString()
+    .split('')
+    .map(Number)
+    .reduce(function (a, b) {
+      return a + b;
+    }, 0);
+
+  return summed;
+
 };
 
 /**
- * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
+ * This function creates a range of numbers as an array. It received a start, an end and a step.
+ *  Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2
+ *  the resulting range would be: [3, 5, 7, 9, 11]
  * Both the start and the end numbers are inclusive.
  * Step is an optional parameter. If it is not provided, assume the step is 1.
  * @param {Number} start
@@ -17,7 +29,17 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  if (end < start) throw new Error("End needs to be bigger than start");
+
+  result = [];
+  for (i = start; i <= end; i+=step) {
+    result.push(i);
+  }
+  return result;
 };
+
+
+
 
 /**
  * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
@@ -43,14 +65,21 @@ const createRange = (start, end, step) => {
  *   },
  * ]
  *
- * The function should return an array of usernames of users who have used more than 100 minutes of screentime for a given date.
+ * The function should return an array of usernames of users who have used more than 100 minutes of screentime for a given
+ *  date.
  * The date will be provided in the format "2019-05-04" (YYYY-MM-DD)
- * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
+ * For example, if passed the above users and the date "2019-05-04" the function should return 
+ * ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
  */
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+
+
+
+  
 };
 
 /**
