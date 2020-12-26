@@ -37,3 +37,43 @@ const {
         expect(getComplementaryDNA("ACTG")).toEqual("TGAC");
     });
   });
+
+
+
+  describe("isItPrime", () => {
+    test("Check if number is prime", () => {
+        expect(isItPrime("7")).toBe(true);
+        expect(isItPrime("4")).toBe(false);
+        expect(isItPrime("11")).toBe(true);
+        expect(isItPrime("3")).toBe(true);
+        expect(isItPrime("6")).toBe(false);
+
+    });
+  });
+
+
+  describe("createMatrix", () => {
+    test("Compare arrays", () => {
+        expect(createMatrix(3,"foo")).toStrictEqual([["foo", "foo", "foo"],["foo", "foo", "foo"],["foo", "foo", "foo"]]);
+        expect(createMatrix(1,"foo")).toStrictEqual([["foo"]]);
+    });
+  });
+
+
+  describe("areWeCovered", () => {
+    test("No coverage", () => {
+      expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday"]},
+                            { name: "Jake", rota: ["Monday", "Tuesday"]},
+                            { name: "Jordan", rota: ["Tuesday"]}                      
+                          ],"Monday")).toBe(false);
+                        });
+                      
+
+    test("Covered", () => {
+      expect(areWeCovered([{ name: "Sally", rota: ["Saturday", "Tuesday"]},
+                            { name: "Jake", rota: ["Monday", "Saturday"]},
+                            { name: "Jordan", rota: ["Saturday"]}
+                          ],"Saturday")).toBe(true);        
+    });
+  });
+  

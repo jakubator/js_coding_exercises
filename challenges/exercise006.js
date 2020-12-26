@@ -16,7 +16,8 @@ const sumMultiples = arr => {
 };
 
 /**
- * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
+ * This function will receive a string of characters and should return true/false depending on whether it
+ *  is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
  * @param {String} str
  * @returns {Boolean}
  */
@@ -60,16 +61,23 @@ const getComplementaryDNA = str => {
 };  
 
 /**
- * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
+ * This function should receive a number and return true/false depending on whether it is a prime number or not.
+ *  A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
  * @param {Number} n
  * @returns {Boolean}
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  for(let i = 2; i < n; i++)
+  if(n % i === 0) return false;
+  return n > 1;
+
 };
 
 /**
- * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
+ * This function should receive a number and return an array of n arrays, each filled with n items.
+ *  The parameter "fill" should be used as the filler of the arrays. For example, given parameters
+ *  3 and "foo" the resulting matrix should be:
  * [
  *   ["foo", "foo", "foo"],
  *   ["foo", "foo", "foo"],
@@ -82,6 +90,18 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  matrix = [];
+
+  for(let i = 0; i < n; i++) {
+    matrix[i] = [];
+    for(let j = 0; j < n; j++) {
+      matrix[i][j] = fill;
+    }
+  }
+  
+  return matrix
+
 };
 
 /**
@@ -91,7 +111,8 @@ const createMatrix = (n, fill) => {
  *  { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
  *  ...etc
  * ]
- * and a day of the week. For the café to run successfully, at least 3 staff members are required per day. The function should return true/false depending on whether there are enough staff scheduled for the given day.
+ * and a day of the week. For the café to run successfully, at least 3 staff members are required per day.
+ *  The function should return true/false depending on whether there are enough staff scheduled for the given day.
  * @param {Array} staff
  * @param {String} day
  * @returns {Boolean}
@@ -99,7 +120,29 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+
+  covered = true;
+
+  weekCoverage = {
+    "Monday": [],
+    "Tuesday": [],
+    "Wednesday": [],
+    "Thursday": [],
+    "Friday": [],
+    "Saturday": [],
+    "Sunday": []
+  }
+
+  for (i = 0; i < staff.length; i++){
+    for (j = 0; j < staff[i]["rota"].length; j++){
+      weekCoverage[staff[i]["rota"][j]].push(staff[i]["name"])
+    }
+  }
+  if (weekCoverage[day].length <3)
+   {return false}
+  return covered;
 };
+
 
 module.exports = {
   sumMultiples,
