@@ -4,26 +4,53 @@ const {
     getScreentimeAlertList,
     hexToRGB,
     findWinner
-  } = require("../challenges/exercise006");
+  } = require("../challenges/exercise007");
 
+  describe("checkWinners", () => {
+    test("Diagonal 1", () => {
+      const board =
+        [
+          ["X", "X", "R"],
+          ["X", "X", "0"],
+          ["N", null, "X"]
+        ]; expect(findWinner(board)).toBe("X");
+    });
 
+    test("Diagonal 2", () => {
+      const board1 =
+      [
+        ["X", "0", "0"],
+        ["X", "0", "X"],
+        ["0", null, null]
+      ]; expect(findWinner(board1)).toBe("0");
+    });
+    test("Row 2", () => {
 
-  describe("findNextNumber", () => {
-    test("returns the next number after the given number in the array", () => {
-      expect(findNextNumber([5, 3, 7, 8, 1, 10], 7)).toBe(8);
-      expect(findNextNumber([5, 3, 7, 8, 1, 10], 1)).toBe(10);
-      expect(findNextNumber([4, 22, 654, 123, 65, 23, 40, 1], 22)).toBe(654);
+      const board2 =
+      [
+        ["X", "0", "0"],
+        ["X", "X", "X"],
+        ["0", null, null]
+      ]; expect(findWinner(board2)).toBe("X");
     });
-  
-    test("if the number is not found in the array, returns null", () => {
-      expect(findNextNumber([5, 3, 7, 8, 1, 10], 55)).toBe(null);
+
+    test("Null", () => {
+      const board3 =
+      [
+        ["X", "0", "0"],
+        ["X", "R", "X"],
+        ["0", null, null]
+      ]; expect(findWinner(board3)).toBe(null);
     });
-  
-    test("if the number is found more than once, returns the number after the first instance", () => {
-      expect(findNextNumber([5, 3, 7, 8, 1, 3, 10], 3)).toBe(7);
+
+    test("Column 1", () => {
+      const board3 =
+      [
+        ["X", "0", "0"],
+        ["X", "R", "X"],
+        ["X", null, null]
+      ]; expect(findWinner(board3)).toBe("X");
     });
-  
-    test("if the number is found in the final index position of the array, returns null", () => {
-      expect(findNextNumber([5, 3, 7, 8, 1, 3, 10], 10)).toBe(null);
-    });
+
   });
+

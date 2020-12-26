@@ -51,12 +51,32 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  addicted = []
+
+  users.forEach(user => {
+    user.screenTime.forEach(screenTime => {
+      if (screenTime.date === date) {
+        let sumScreenTime = 0;
+        for (let key in screenTime.usage) {
+          sumScreenTime += screenTime.usage[key];
+        }
+        if (sumScreenTime >= 100) {
+          addicted.push(user.username)
+        }
+      }
+    });
+  });
+  return addicted;
 };
 
+
 /**
- * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
+ * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal
+ *  notation, i.e. base 16. If you want to know more about hexadecimal notation:
  * https://www.youtube.com/watch?v=u_atXp-NF6w
- * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
+ * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of
+ *  green, and the last 2 chars (33) represent the amount of blue.
  * Colours can also be represented in RGB format, using decimal notation.
  * This function should transform the hex code into an RGB code in the format:
  * "rgb(255,17,51)"
@@ -65,6 +85,14 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+  return `rgb(${r},${g},${b})`
 };
 
 /**
@@ -79,7 +107,73 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+
+  if (winner = checkDiagonals(board)) {
+    return winner;
+  };
+
+  board = transpose(board)
+
+  for (let i = 0; i < board.length; i++) {
+    result = checkRows(board[i]);
+    if (result) {
+      return result;
+    }
+  };
+  return null;
 };
+
+function checkRows(board) {
+  let rowSet = new Set()
+  board.forEach(row => {
+    rowSet.add(row)
+  });
+  if (rowSet.size == 1) {
+    for (const v of rowSet) {
+      return v;
+    }
+  }
+};
+
+function checkDiagonals(board) {
+  let rowSet = new Set();
+  let rowSet2 = new Set();
+
+  for (let i = 0; i < board.length; i++) {
+    rowSet.add(board[i][i])
+  }
+  if (rowSet.size == 1) {
+    for (const v of rowSet) {
+      return v;
+    }
+  }
+
+  for (let i = 0; i < board.length; i++) {
+    rowSet2.add(board[i][board.length - i - 1])
+  }
+  if (rowSet2.size == 1) {
+    for (const v of rowSet2) {
+      return v;
+    }
+  }
+};
+
+function transpose(original) {
+  var copy = [];
+  var transposed = original;
+
+  for (var i = 0; i < original.length; ++i) {
+    for (var j = 0; j < original[i].length; ++j) {
+      if (original[i][j] === undefined) continue;
+      if (copy[j] === undefined) copy[j] = [];
+      copy[j][i] = original[i][j];
+    }
+  }
+  copy.forEach(row => {
+    transposed.push(row)
+  });
+  return transposed;
+}
 
 module.exports = {
   sumDigits,
@@ -88,3 +182,5 @@ module.exports = {
   hexToRGB,
   findWinner
 };
+
+
