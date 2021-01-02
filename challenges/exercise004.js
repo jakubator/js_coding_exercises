@@ -8,9 +8,7 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  return names.filter(n => {
-    return n.charAt(0) == char;
-  });
+  return names.filter(n => n.charAt(0) == char);
 }
 
 function findVerbs(words) {

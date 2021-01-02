@@ -12,20 +12,20 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  let priceWithVat = originalPrice + originalPrice * (vatRate / 100);
+  const priceWithVat = originalPrice + originalPrice * (vatRate / 100);
   return Number(priceWithVat.toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  let priceWithReduction = originalPrice - originalPrice * (reduction / 100);
+  const priceWithReduction = originalPrice - originalPrice * (reduction / 100);
   return Number(priceWithReduction.toFixed(2));
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let l = str.length;
+  const l = str.length;
   let startingIndex;
   let numberOfChars;
 
@@ -47,12 +47,9 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  result = [];
-  reversedList = words.reverse();
-  sentence = reversedList.join(" ")
-  reversedString = sentence.split("").reverse().join("")
-  result = reversedString.split(" ")
-  return result
+
+  return words.reverse().join(" ").split("").reverse().join("").split(" ");
+ 
 }
 
 function countLinuxUsers(users) {
@@ -66,7 +63,7 @@ function countLinuxUsers(users) {
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  scoreSum = 0;
+  let scoreSum = 0;
   for (let i = 0; i < scores.length; i++) {
     scoreSum += scores[i];
   }
@@ -78,11 +75,11 @@ function getMeanScore(scores) {
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  if (n % 3 === 0 && n % 5 === 0) {return("fizzbuzz")};
-  if (n % 3 != 0 && n % 5 != 0) {return(n)};
-  if (n % 3 === 0) {return("fizz")};
-  if (n % 5 === 0) {return("buzz")};
-  if (n % 3 === 0) {return("fizz")};
+  if (n % 3 === 0 && n % 5 === 0) {return("fizzbuzz")}
+  if (n % 3 != 0 && n % 5 != 0) {return(n)}
+  if (n % 3 === 0) {return("fizz")}
+  if (n % 5 === 0) {return("buzz")}
+  if (n % 3 === 0) {return("fizz")}
 }
 
 module.exports = {

@@ -1,9 +1,9 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  index = nums.indexOf(n);
+  let index = nums.indexOf(n);
   if(index > 0 && index < nums.length - 1){
-   nextItem = nums[index + 1]
+  let nextItem = nums[index + 1]
    return nextItem;
   }
   return null
@@ -11,7 +11,7 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  keys_dict= {
+  let keys_dict= {
     1: 0,
     0: 0
   };

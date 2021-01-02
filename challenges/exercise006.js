@@ -23,8 +23,8 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  result = true;
-  dna = ["c", "g", "t", "a"];
+  let result = true;
+  let dna = ["c", "g", "t", "a"];
 
   for (let i = 0; i < str.length; i++) {
     if (!dna.includes(str[i].toLowerCase())) return false
@@ -44,13 +44,13 @@ const isValidDNA = str => {
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
 
-  complDna = {
+  let complDna = {
     "T":"A",
     "C":"G",
     "G":"C",
     "A":"T"
   }
-  result = ""
+  let result = ""
 
   if (isValidDNA) {
     for (let i = 0; i < str.length; i++) {
@@ -91,7 +91,7 @@ const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
 
-  matrix = [];
+  let matrix = [];
 
   for(let i = 0; i < n; i++) {
     matrix[i] = [];
@@ -121,9 +121,9 @@ const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
 
-  covered = true;
+  let covered = true;
 
-  weekCoverage = {
+  let weekCoverage = {
     "Monday": [],
     "Tuesday": [],
     "Wednesday": [],

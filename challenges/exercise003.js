@@ -41,7 +41,7 @@ function duplicateNumbers(arr1, arr2) {
   });
   //creating dict of seen numbers and storage array
   var seen = {};
-  result = [];
+  let result = [];
   result = dupes.filter(function(item) {
       return seen.hasOwnProperty(item) ? false : (seen[item] = true);
   });

@@ -18,17 +18,14 @@ function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   var counter = 0;
   for (let i = 0; i <= arr.length; i++) {
-    if (arr[i] == "sheep") counter++;
+    if (arr[i] === "sheep") counter++;
   }
   return counter;
 }
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
-  if  (person.address.postCode.substring(0, 1) == "M" && person.address.city === "Manchester") {
-      return true;
-    }
-  return false;
+  return (person.address.postCode.substring(0, 1) === "M" && person.address.city === "Manchester");
   }
   
 
