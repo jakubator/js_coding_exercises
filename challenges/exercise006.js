@@ -9,7 +9,7 @@ const sumMultiples = arr => {
   var total = 0
 
   for (let i = 0; i < arr.length; i++) {
-  if ((arr[i] % 3 == 0) || (arr[i] % 5 == 0)) total += arr[i];
+    if ((arr[i] % 3 == 0) || (arr[i] % 5 == 0)) total += arr[i];
   }
   return total
 
@@ -29,9 +29,9 @@ const isValidDNA = str => {
   for (let i = 0; i < str.length; i++) {
     if (!dna.includes(str[i].toLowerCase())) return false
   }
-  
+
   return result
-  
+
 };
 
 /**
@@ -45,10 +45,10 @@ const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
 
   let complDna = {
-    "T":"A",
-    "C":"G",
-    "G":"C",
-    "A":"T"
+    "T": "A",
+    "C": "G",
+    "G": "C",
+    "A": "T"
   }
   let result = ""
 
@@ -56,9 +56,9 @@ const getComplementaryDNA = str => {
     for (let i = 0; i < str.length; i++) {
       result += complDna[str[i]];
     }
-  return result
+    return result
   };
-};  
+};
 
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not.
@@ -68,8 +68,8 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
-  for(let i = 2; i < n; i++)
-  if(n % i === 0) return false;
+  for (let i = 2; i < n; i++)
+    if (n % i === 0) return false;
   return n > 1;
 
 };
@@ -93,13 +93,13 @@ const createMatrix = (n, fill) => {
 
   let matrix = [];
 
-  for(let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     matrix[i] = [];
-    for(let j = 0; j < n; j++) {
+    for (let j = 0; j < n; j++) {
       matrix[i][j] = fill;
     }
   }
-  
+
   return matrix
 
 };
@@ -133,13 +133,12 @@ const areWeCovered = (staff, day) => {
     "Sunday": []
   }
 
-  for (i = 0; i < staff.length; i++){
-    for (j = 0; j < staff[i]["rota"].length; j++){
+  for (let i = 0; i < staff.length; i++) {
+    for (let j = 0; j < staff[i]["rota"].length; j++) {
       weekCoverage[staff[i]["rota"][j]].push(staff[i]["name"])
     }
   }
-  if (weekCoverage[day].length <3)
-   {return false}
+  if (weekCoverage[day].length < 3) { return false }
   return covered;
 };
 

@@ -4,7 +4,7 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
-  summed = n
+  const summed = n
     .toString()
     .split('')
     .map(Number)
@@ -31,8 +31,8 @@ const createRange = (start, end, step) => {
   if (end === undefined) throw new Error("end is required");
   if (end < start) throw new Error("End needs to be bigger than start");
 
-  result = [];
-  for (i = start; i <= end; i+=step) {
+  const result = [];
+  for (let i = start; i <= end; i += step) {
     result.push(i);
   }
   return result;
@@ -110,7 +110,7 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
 
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
   result = {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
@@ -133,18 +133,20 @@ const hexToRGB = hexStr => {
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
 
+  let winner = null;
+
   if (winner = checkDiagonals(board)) {
     return winner;
-  };
+  }
 
   board = transpose(board)
 
   for (let i = 0; i < board.length; i++) {
-    result = checkRows(board[i]);
+    let result = checkRows(board[i]);
     if (result) {
       return result;
     }
-  };
+  }
   return null;
 };
 
@@ -158,7 +160,7 @@ function checkRows(board) {
       return v;
     }
   }
-};
+}
 
 function checkDiagonals(board) {
   let rowSet = new Set();
@@ -181,14 +183,14 @@ function checkDiagonals(board) {
       return v;
     }
   }
-};
+}
 
 function transpose(original) {
   var copy = [];
   var transposed = original;
 
-  for (var i = 0; i < original.length; ++i) {
-    for (var j = 0; j < original[i].length; ++j) {
+  for (let i = 0; i < original.length; ++i) {
+    for (let j = 0; j < original[i].length; ++j) {
       if (original[i][j] === undefined) continue;
       if (copy[j] === undefined) copy[j] = [];
       copy[j][i] = original[i][j];

@@ -49,7 +49,7 @@ function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
   return words.reverse().join(" ").split("").reverse().join("").split(" ");
- 
+
 }
 
 function countLinuxUsers(users) {
@@ -75,11 +75,11 @@ function getMeanScore(scores) {
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  if (n % 3 === 0 && n % 5 === 0) {return("fizzbuzz")}
-  if (n % 3 != 0 && n % 5 != 0) {return(n)}
-  if (n % 3 === 0) {return("fizz")}
-  if (n % 5 === 0) {return("buzz")}
-  if (n % 3 === 0) {return("fizz")}
+  if (n % 3 === 0 && n % 5 === 0) { return ("fizzbuzz") }
+  if (n % 3 != 0 && n % 5 != 0) { return (n) }
+  if (n % 3 === 0) { return ("fizz") }
+  if (n % 5 === 0) { return ("buzz") }
+  if (n % 3 === 0) { return ("fizz") }
 }
 
 module.exports = {

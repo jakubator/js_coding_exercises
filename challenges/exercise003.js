@@ -1,6 +1,6 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  return nums.map(x => x*x);
+  return nums.map(x => x * x);
 }
 
 function camelCaseWords(words) {
@@ -8,7 +8,6 @@ function camelCaseWords(words) {
   if (words.length === 0) return "";
   return words.map((value, index) => {
     if (index == 0) return value;
-
     return value.substring(0, 1).toUpperCase() + value.substring(1, value.length);
   })
     .join("");
@@ -36,16 +35,16 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   //creating list of dupes
-  var dupes = arr1.filter(function(val) {
+  const dupes = arr1.filter(function (val) {
     return arr2.indexOf(val) != -1;
   });
   //creating dict of seen numbers and storage array
-  var seen = {};
+  const seen = {};
   let result = [];
-  result = dupes.filter(function(item) {
-      return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+  result = dupes.filter(function (item) {
+    return seen.hasOwnProperty(item) ? false : (seen[item] = true);
   });
-  return result.sort(function(a, b){return a-b});
+  return result.sort(function (a, b) { return a - b });
 }
 
 module.exports = {

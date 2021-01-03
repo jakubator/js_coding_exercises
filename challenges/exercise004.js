@@ -15,7 +15,7 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
   return words.filter(w => {
     const word = w.split(" ");
-    if (word[0] == "to") return word;
+    if (word[0] === "to") return word;
   });
 }
 
@@ -28,9 +28,9 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  var result = [];
-  var i = 0;
-  users.forEach(element =>{
+  let result = [];
+  let i = 0;
+  users.forEach(element => {
     result.push(users[i].data.city.displayName);
     i++;
   })
@@ -39,8 +39,8 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  const squareRoots = nums.map(function(num) {
-    return Math.round((Math.sqrt(num)*100))/100;
+  const squareRoots = nums.map(function (num) {
+    return Math.round((Math.sqrt(num) * 100)) / 100;
   });
   return squareRoots;
 }
@@ -55,7 +55,7 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  const longestSide = triangles.map(function(triangle) {
+  const longestSide = triangles.map(function (triangle) {
     return Math.max(...triangle);
   });
   return longestSide;

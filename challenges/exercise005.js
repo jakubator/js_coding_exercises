@@ -2,16 +2,16 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
   let index = nums.indexOf(n);
-  if(index > 0 && index < nums.length - 1){
-  let nextItem = nums[index + 1]
-   return nextItem;
+  if (index > 0 && index < nums.length - 1) {
+    let nextItem = nums[index + 1]
+    return nextItem;
   }
   return null
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  let keys_dict= {
+  let keys_dict = {
     1: 0,
     0: 0
   };
@@ -34,7 +34,7 @@ const reverseNumber = n => {
         .reverse()
         .join('')
     )
-  )   
+  )
 };
 
 const sumArrays = arrs => {
@@ -53,9 +53,9 @@ const arrShift = arr => {
   if (arr.length < 1) return [];
   else {
     let first = arr[0];
-    let last = arr[arr.length-1];
+    let last = arr[arr.length - 1];
     arr[0] = last;
-    arr[arr.length-1] = first;
+    arr[arr.length - 1] = first;
 
     return arr
   }
@@ -64,10 +64,11 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  var needle = false;
+  let needle = false;
 
   Object.keys(haystack)
-    .forEach(k => {if (haystack[k].toString().toLowerCase()
+    .forEach(k => {
+      if (haystack[k].toString().toLowerCase()
         .includes(searchTerm.toLowerCase())) { needle = true };
     });
 
@@ -77,8 +78,8 @@ const findNeedle = (haystack, searchTerm) => {
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   const freq = {};
-  
-  var cleansed = str.replace(/[,!?]/g,"").toLowerCase();
+
+  var cleansed = str.replace(/[,!?]/g, "").toLowerCase();
   const list_words = cleansed.split(' ')
 
   for (let i = 0; i < list_words.length; i++) {
