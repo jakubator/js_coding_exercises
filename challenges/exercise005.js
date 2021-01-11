@@ -11,17 +11,17 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  let keys_dict = {
+  let keysDict = {
     1: 0,
     0: 0
   };
   for (let i = 0; i < str.length; i++) {
     let chr = str[i];
-    if (keys_dict[chr] !== undefined) {
-      keys_dict[chr] += 1;
+    if (keysDict[chr] !== undefined) {
+      keysDict[chr] += 1;
     }
   }
-  return keys_dict;
+  return keysDict;
 };
 
 const reverseNumber = n => {
@@ -78,10 +78,8 @@ const findNeedle = (haystack, searchTerm) => {
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   const freq = {};
-
-  var cleansed = str.replace(/[,!?]/g, "").toLowerCase();
+  let cleansed = str.replace(/[,!?]/g, "").toLowerCase();
   const list_words = cleansed.split(' ')
-
   for (let i = 0; i < list_words.length; i++) {
     const word = list_words[i].toLowerCase();
     if (freq[word] === undefined) {

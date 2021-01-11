@@ -138,7 +138,6 @@ describe("duplicateNumbers", () => {
     let arr1 = [1, 55, 4, 3, 7, 8];
     let arr2 = [55, 23, 65, 0];
     expect(duplicateNumbers(arr1, arr2)).toEqual([55]);
-
     arr1 = [6, 4, 2, 4, 1, 9];
     arr2 = [1];
     expect(duplicateNumbers(arr1, arr2)).toEqual([1]);
@@ -148,7 +147,6 @@ describe("duplicateNumbers", () => {
     let arr1 = [1, 55, 4, 3, 7, 8];
     let arr2 = [55, 23, 65, 0, 1];
     expect(duplicateNumbers(arr1, arr2)).toEqual([1, 55]);
-
     arr1 = [1, 5, 88, 6, 7, 3, 2];
     arr2 = [4, 1, 7, 3, 2];
     expect(duplicateNumbers(arr1, arr2)).toEqual([1, 2, 3, 7]);
@@ -158,7 +156,6 @@ describe("duplicateNumbers", () => {
     let arr1 = [1, 2, 2, 2, 3, 4, 5];
     let arr2 = [1, 2, 6, 7];
     expect(duplicateNumbers(arr1, arr2)).toEqual([1, 2]);
-
     arr1 = [1, 2, 3];
     arr2 = [3, 3, 3, 4, 5];
     expect(duplicateNumbers(arr1, arr2)).toEqual([3]);

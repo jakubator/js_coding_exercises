@@ -14,7 +14,6 @@ describe("getFillings", () => {
       accompaniment: "crisps"
     };
     expect(getFillings(sandwich)).toEqual(["brie", "relish", "lettuce"]);
-
     const sandwich2 = {
       bread: "Rye",
       fillings: ["smoked salmon", "dill"],

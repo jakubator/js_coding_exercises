@@ -1,8 +1,6 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  return nums.filter(n => {
-    return n < 1;
-  });
+  return nums.filter(n => n < 1);
 }
 
 function findNamesBeginningWith(names, char) {
@@ -21,44 +19,30 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  return nums.filter(n => {
-    return Number.isInteger(n);
-  });
+  return nums.filter(n => Number.isInteger(n));
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  let result = [];
-  let i = 0;
-  users.forEach(element => {
-    result.push(users[i].data.city.displayName);
-    i++;
-  })
-  return result;
+  return users.map(user => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  const squareRoots = nums.map(function (num) {
-    return Math.round((Math.sqrt(num) * 100)) / 100;
+  return nums.map((num) => {
+    return Math.round(Math.sqrt(num) * 100) / 100;
   });
-  return squareRoots;
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  return sentences.filter((sentence) => {
-    return sentence.toLowerCase().includes(str.toLowerCase());
-  });
+  return sentences.filter(s => s.split(" ").toString().toLowerCase().includes(str.toLowerCase()));
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  const longestSide = triangles.map(function (triangle) {
-    return Math.max(...triangle);
-  });
-  return longestSide;
+  return triangles.map(element => Math.max.apply(null, element));
 }
 
 module.exports = {

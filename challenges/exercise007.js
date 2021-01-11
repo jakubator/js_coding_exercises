@@ -4,16 +4,13 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
-  const summed = n
+  return n
     .toString()
     .split('')
     .map(Number)
     .reduce(function (a, b) {
       return a + b;
     }, 0);
-
-  return summed;
-
 };
 
 /**
@@ -30,7 +27,6 @@ const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
   if (end < start) throw new Error("End needs to be bigger than start");
-
   const result = [];
   for (let i = start; i <= end; i += step) {
     result.push(i);
@@ -75,9 +71,7 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-
   let addicted = []
-
   users.forEach(user => {
     user.screenTime.forEach(screenTime => {
       if (screenTime.date === date) {
@@ -109,14 +103,12 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
-
   let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
   result = {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
     b: parseInt(result[3], 16)
   };
-
   return `rgb(${result.r},${result.g},${result.b})`
 };
 
@@ -132,15 +124,11 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
-
   let winner = null;
-
   if (winner = checkDiagonals(board)) {
     return winner;
   }
-
   board = transpose(board)
-
   for (let i = 0; i < board.length; i++) {
     let result = checkRows(board[i]);
     if (result) {
@@ -165,7 +153,6 @@ function checkRows(board) {
 function checkDiagonals(board) {
   let rowSet = new Set();
   let rowSet2 = new Set();
-
   for (let i = 0; i < board.length; i++) {
     rowSet.add(board[i][i])
   }
@@ -174,7 +161,6 @@ function checkDiagonals(board) {
       return v;
     }
   }
-
   for (let i = 0; i < board.length; i++) {
     rowSet2.add(board[i][board.length - i - 1])
   }
@@ -186,9 +172,8 @@ function checkDiagonals(board) {
 }
 
 function transpose(original) {
-  var copy = [];
-  var transposed = original;
-
+  let copy = [];
+  let transposed = original;
   for (let i = 0; i < original.length; ++i) {
     for (let j = 0; j < original[i].length; ++j) {
       if (original[i][j] === undefined) continue;

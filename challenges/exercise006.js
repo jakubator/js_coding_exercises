@@ -6,8 +6,7 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  var total = 0
-
+  let total = 0
   for (let i = 0; i < arr.length; i++) {
     if ((arr[i] % 3 == 0) || (arr[i] % 5 == 0)) total += arr[i];
   }
@@ -25,7 +24,6 @@ const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   let result = true;
   let dna = ["c", "g", "t", "a"];
-
   for (let i = 0; i < str.length; i++) {
     if (!dna.includes(str[i].toLowerCase())) return false
   }
@@ -43,7 +41,6 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
-
   let complDna = {
     "T": "A",
     "C": "G",
@@ -51,7 +48,6 @@ const getComplementaryDNA = str => {
     "A": "T"
   }
   let result = ""
-
   if (isValidDNA) {
     for (let i = 0; i < str.length; i++) {
       result += complDna[str[i]];
@@ -90,16 +86,13 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
-
   let matrix = [];
-
   for (let i = 0; i < n; i++) {
     matrix[i] = [];
     for (let j = 0; j < n; j++) {
       matrix[i][j] = fill;
     }
   }
-
   return matrix
 
 };
@@ -120,9 +113,7 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-
   let covered = true;
-
   let weekCoverage = {
     "Monday": [],
     "Tuesday": [],

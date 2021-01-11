@@ -31,14 +31,11 @@ describe("isValidDNA", () => {
 
 });
 
-
 describe("getComplementaryDNA", () => {
   test("Check sum of multiples. Testing valid and partially valid arrays", () => {
     expect(getComplementaryDNA("ACTG")).toEqual("TGAC");
   });
 });
-
-
 
 describe("isItPrime", () => {
   test("Check if number is prime", () => {
@@ -51,14 +48,12 @@ describe("isItPrime", () => {
   });
 });
 
-
 describe("createMatrix", () => {
   test("Compare arrays", () => {
     expect(createMatrix(3, "foo")).toStrictEqual([["foo", "foo", "foo"], ["foo", "foo", "foo"], ["foo", "foo", "foo"]]);
     expect(createMatrix(1, "foo")).toStrictEqual([["foo"]]);
   });
 });
-
 
 describe("areWeCovered", () => {
   test("No coverage", () => {
@@ -67,7 +62,6 @@ describe("areWeCovered", () => {
     { name: "Jordan", rota: ["Tuesday"] }
     ], "Monday")).toBe(false);
   });
-
 
   test("Covered", () => {
     expect(areWeCovered([{ name: "Sally", rota: ["Saturday", "Tuesday"] },

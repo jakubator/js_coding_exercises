@@ -47,9 +47,7 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-
   return words.reverse().join(" ").split("").reverse().join("").split(" ");
-
 }
 
 function countLinuxUsers(users) {
@@ -68,7 +66,6 @@ function getMeanScore(scores) {
     scoreSum += scores[i];
   }
   const meanScore = scoreSum / scores.length;
-
   if (meanScore % 1 === 0) return parseInt(meanScore);
   else return parseFloat(Number(meanScore).toFixed(2));
 }

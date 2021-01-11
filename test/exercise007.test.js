@@ -7,7 +7,6 @@ const {
 } = require("../challenges/exercise007");
 
 
-
 describe("sumDigits", () => {
 
   test("Summing up the digits", () => {
@@ -29,7 +28,6 @@ describe("createRange", () => {
 
 });
 
-
 describe("hexToRGB", () => {
   test("Transform hex to RGB, check", () => {
     expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
@@ -37,7 +35,6 @@ describe("hexToRGB", () => {
     expect(hexToRGB("#1234ff")).toBe("rgb(18,52,255)");
   });
 });
-
 
 describe("getScreentimeAlertList", () => {
   test("Addiction test", () => {
@@ -66,11 +63,6 @@ describe("getScreentimeAlertList", () => {
 
   });
 });
-
-
-
-
-
 
 describe("checkWinners", () => {
   test("Diagonal 1", () => {

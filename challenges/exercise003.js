@@ -15,7 +15,7 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  var subjects = 0;
+  let subjects = 0;
   for (let i = 0; i < people.length; i++) {
     subjects += people[i].subjects.length;
   }
@@ -24,27 +24,18 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  let menu_item = menu.find((dishes) => {
+  let menuItem = menu.find((dishes) => {
     return dishes.ingredients.includes(ingredient);
   });
-  if (menu_item !== undefined) return true;
+  if (menuItem !== undefined) return true;
   return false;
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  //creating list of dupes
-  const dupes = arr1.filter(function (val) {
-    return arr2.indexOf(val) != -1;
-  });
-  //creating dict of seen numbers and storage array
-  const seen = {};
-  let result = [];
-  result = dupes.filter(function (item) {
-    return seen.hasOwnProperty(item) ? false : (seen[item] = true);
-  });
-  return result.sort(function (a, b) { return a - b });
+  const duplicateNumArray = arr1.filter(value => arr2.includes(value)).sort((a, b) => a - b);
+  return [...new Set(duplicateNumArray)];
 }
 
 module.exports = {
